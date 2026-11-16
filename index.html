@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Coral Store — Men's Sports, EVA &amp; Casual Shoes | Mathura</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            cream: '#FAF7F2',
+            sand: '#EFE9DF',
+            charcoal: '#1C1917',
+            coral: {
+              DEFAULT: '#E05A47',
+              dark: '#C44533',
+              light: '#FDECE9',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="bg-cream text-charcoal antialiased selection:bg-coral selection:text-white">
+
+  <!-- Announcement Bar -->
+  <div class="bg-charcoal text-cream text-xs sm:text-sm py-2 px-4 text-center">
+    <span class="inline-flex items-center gap-2 flex-wrap justify-center">
+      <span>Free Shipping across Mathura &amp; India on orders ₹1,499+</span>
+      <span class="text-coral font-semibold">• Use code <code class="bg-white/10 px-1.5 py-0.5 rounded">CORAL10</code> for 10% off</span>
+    </span>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <button id="mobile-menu-btn" type="button" aria-label="Open menu" class="lg:hidden p-2 -ml-2 rounded-lg hover:bg-sand transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <a href="#top" class="flex items-center gap-2.5 group">
+          <span class="w-8 h-8 rounded-full bg-coral text-white flex items-center justify-center font-editorial font-bold text-lg shadow-sm group-hover:scale-105 transition">C</span>
+          <div class="leading-tight">
+            <span class="font-editorial font-bold text-lg sm:text-xl tracking-tight block">The Coral Store</span>
+            <span class="text-[10px] uppercase tracking-[0.18em] text-stone-500 hidden sm:block">Footwear Studio • Mathura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-700">
+        <a href="#catalog" data-nav-cat="All" class="hover:text-coral transition">All Shoes</a>
+        <a href="#catalog" data-nav-cat="Sports & Running" class="hover:text-coral transition">Sports</a>
+        <a href="#catalog" data-nav-cat="EVA Lightweight" class="hover:text-coral transition">EVA Shoes</a>
+        <a href="#catalog" data-nav-cat="Casual Sneakers" class="hover:text-coral transition">Sneakers</a>
+        <a href="#catalog" data-nav-cat="High-Tops" class="hover:text-coral transition">High-Tops</a>
+        <a href="#catalog" data-nav-cat="Loafers & Smart" class="hover:text-coral transition">Loafers</a>
+        <a href="#visit-store" class="hover:text-coral transition">Visit Store</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="hidden md:flex items-center bg-white border border-stone-200 rounded-full px-3 py-1.5 w-48 lg:w-56 focus-within:border-coral transition">
+          <svg class="w-4 h-4 text-stone-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.3-4.3"/></svg>
+          <input id="desktop-search" type="search" placeholder="Search running, EVA, sneakers..." class="w-full bg-transparent pl-2 text-sm focus:outline-none placeholder:text-stone-400" />
+        </div>
+
+        <button id="wishlist-filter-btn" type="button" aria-label="Filter Wishlist" class="relative p-2 rounded-full hover:bg-sand transition text-stone-700" title="Saved Shoes">
+          <svg id="wishlist-header-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+          <span id="wishlist-count" class="hidden absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-charcoal text-white text-[10px] font-semibold flex items-center justify-center">0</span>
+        </button>
+
+        <button id="open-cart-btn" type="button" class="inline-flex items-center gap-2 bg-charcoal hover:bg-coral text-white px-3.5 py-2 rounded-full text-sm font-medium transition shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9Z"/></svg>
+          <span class="hidden sm:inline">Bag</span>
+          <span id="cart-count" class="bg-white/20 text-white text-xs font-semibold px-1.5 py-0.5 rounded-full">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-200 bg-cream px-4 py-4 space-y-3">
+      <div class="flex items-center bg-white border border-stone-200 rounded-full px-3 py-2">
+        <svg class="w-4 h-4 text-stone-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.3-4.3"/></svg>
+        <input id="mobile-search" type="search" placeholder="Search sports, EVA, sneakers..." class="w-full bg-transparent pl-2 text-sm focus:outline-none" />
+      </div>
+      <div class="grid grid-cols-3 gap-2 text-xs font-medium">
+        <a href="#catalog" data-nav-cat="All" class="px-2.5 py-2 rounded-lg bg-white border border-stone-200 text-center">All Shoes</a>
+        <a href="#catalog" data-nav-cat="Sports & Running" class="px-2.5 py-2 rounded-lg bg-white border border-stone-200 text-center">Sports</a>
+        <a href="#catalog" data-nav-cat="EVA Lightweight" class="px-2.5 py-2 rounded-lg bg-white border border-stone-200 text-center">EVA</a>
+        <a href="#catalog" data-nav-cat="Casual Sneakers" class="px-2.5 py-2 rounded-lg bg-white border border-stone-200 text-center">Sneakers</a>
+        <a href="#catalog" data-nav-cat="High-Tops" class="px-2.5 py-2 rounded-lg bg-white border border-stone-200 text-center">High-Tops</a>
+        <a href="#catalog" data-nav-cat="Loafers & Smart" class="px-2.5 py-2 rounded-lg bg-white border border-stone-200 text-center">Loafers</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10 sm:pt-10 sm:pb-14">
+      <div class="relative rounded-3xl overflow-hidden bg-sand border border-stone-200/80 shadow-sm">
+        <div class="grid lg:grid-cols-12 items-center">
+          <div class="lg:col-span-5 p-6 sm:p-10 lg:p-12 space-y-5 z-10">
+            <div class="inline-flex items-center gap-2 bg-white/90 border border-stone-200 px-3 py-1.5 rounded-full text-xs font-medium text-stone-700 shadow-xs">
+              <span class="text-amber-500">★★★★★</span>
+              <span>4.9 Rated Footwear Store • Mathura</span>
+            </div>
+            <h1 class="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.12] tracking-tight text-charcoal">
+              Engineered for <span class="text-coral italic font-semibold">Motion</span>, Styled for the Street.
+            </h1>
+            <p class="text-sm sm:text-base text-stone-600 leading-relaxed">
+              Explore men's lightweight EVA runners, breathable mesh sports trainers, suede court sneakers, high-tops, and smart casual loafers—built for all-day comfort.
+            </p>
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <a href="#catalog" class="inline-flex items-center gap-2 bg-coral hover:bg-coral-dark text-white px-6 py-3 rounded-full text-sm font-semibold transition shadow-sm">
+                <span>Shop Footwear</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#visit-store" class="inline-flex items-center gap-2 bg-white hover:bg-stone-100 text-charcoal border border-stone-300 px-5 py-3 rounded-full text-sm font-medium transition">
+                <span>Try In-Store</span>
+              </a>
+            </div>
+          </div>
+         
+<div class="lg:col-span-7 relative h-64 sm:h-80 lg:h-[460px] overflow-hidden">
+    <img
+        src="./hero-shoes.jpg"
+        alt="The Coral Store Footwear Collection"
+        class="w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/25 via-transparent to-transparent lg:bg-gradient-to-r lg:from-sand/40 lg:via-transparent"></div>
+</div>
+
+        </div>
+      </div>
+
+      <!-- Footwear Highlights -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6">
+        <div class="bg-white border border-stone-200/80 rounded-2xl p-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-coral-light text-coral flex items-center justify-center shrink-0 font-bold text-sm">EVA</div>
+          <div>
+            <p class="text-xs sm:text-sm font-semibold">Featherlight Soles</p>
+            <p class="text-[11px] sm:text-xs text-stone-500">Shock-absorbing EVA foam</p>
+          </div>
+        </div>
+        <div class="bg-white border border-stone-200/80 rounded-2xl p-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-coral-light text-coral flex items-center justify-center shrink-0 font-bold text-sm">UK</div>
+          <div>
+            <p class="text-xs sm:text-sm font-semibold">True-to-Fit Sizes</p>
+            <p class="text-[11px] sm:text-xs text-stone-500">UK 6 to UK 11 in stock</p>
+          </div>
+        </div>
+        <div class="bg-white border border-stone-200/80 rounded-2xl p-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-coral-light text-coral flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+          </div>
+          <div>
+            <p class="text-xs sm:text-sm font-semibold">7-Day Size Exchange</p>
+            <p class="text-[11px] sm:text-xs text-stone-500">Swap sizes effortlessly</p>
+          </div>
+        </div>
+        <div class="bg-white border border-stone-200/80 rounded-2xl p-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-coral-light text-coral flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+          </div>
+          <div>
+            <p class="text-xs sm:text-sm font-semibold">Same-Day Mathura</p>
+            <p class="text-[11px] sm:text-xs text-stone-500">Or instant store pickup</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop by Silhouette Strip -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+      <div class="flex items-end justify-between mb-5">
+        <div>
+          <p class="text-xs uppercase tracking-[0.18em] text-coral font-semibold">Footwear Silhouettes</p>
+          <h2 class="font-editorial text-2xl sm:text-3xl font-bold mt-1">Shop by Style</h2>
+        </div>
+        <a href="#catalog" class="text-sm font-medium text-stone-600 hover:text-coral transition">View all pairs →</a>
+      </div>
+      
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <button type="button" data-cat-card="Sports & Running" class="group text-left bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-coral transition shadow-xs">
+          <div class="aspect-[4/3] overflow-hidden bg-sand">
+            <img src="./airmesh-sports-trainer.jpg" alt="Sports & Running Shoes" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </div>
+
+          <div class="p-3.5">
+            <h3 class="font-semibold text-sm sm:text-base">Sports &amp; Running</h3>
+            <p class="text-xs text-stone-500">Breathable mesh trainers</p>
+          </div>
+        </button>
+        <button type="button" data-cat-card="EVA Lightweight" class="group text-left bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-coral transition shadow-xs">
+         
+
+<div class="aspect-[4/3] overflow-hidden bg-sand">
+  <img
+    src="./aeroknit-gym-trainer.jpg"
+    alt="EVA Lightweight Shoes"
+    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+  />
+</div>
+
+
+          <div class="p-3.5">
+            <h3 class="font-semibold text-sm sm:text-base">EVA Lightweight</h3>
+            <p class="text-xs text-stone-500">Ultra-soft foam soles</p>
+          </div>
+        </button>
+        <button type="button" data-cat-card="Casual Sneakers" class="group text-left bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-coral transition shadow-xs">
+         
+<div class="aspect-[4/3] overflow-hidden bg-sand">
+  <img
+    src="./court-suede-sneakers.jpg"
+    alt="Casual Sneakers"
+    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+  />
+</div>
+
+          <div class="p-3.5">
+            <h3 class="font-semibold text-sm sm:text-base">Casual Sneakers</h3>
+            <p class="text-xs text-stone-500">Everyday court classics</p>
+          </div>
+        </button>
+        <button type="button" data-cat-card="High-Tops" class="group text-left bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-coral transition shadow-xs">
+          
+<div class="aspect-[4/3] overflow-hidden bg-sand">
+  <img
+    src="./hightop-street-sneakers.jpg"
+    alt="High-Top Street Sneakers"
+    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+  />
+</div>
+
+          <div class="p-3.5">
+            <h3 class="font-semibold text-sm sm:text-base">High-Tops</h3>
+            <p class="text-xs text-stone-500">Ankle-support street style</p>
+          </div>
+        </button>
+        <button type="button" data-cat-card="Loafers & Smart" class="group text-left bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-coral transition shadow-xs col-span-2 sm:col-span-1">
+          
+<div class="aspect-[4/3] overflow-hidden bg-sand">
+  <img
+    src="./sandstone-suede-loafers.jpg"
+    alt="Loafers & Smart Casual"
+    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+  />
+</div>
+
+          <div class="p-3.5">
+            <h3 class="font-semibold text-sm sm:text-base">Loafers &amp; Smart</h3>
+            <p class="text-xs text-stone-500">Suede slip-ons &amp; drivers</p>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-5">
+        <div>
+          <p class="text-xs uppercase tracking-[0.18em] text-coral font-semibold">The Footwear Wall</p>
+          <h2 class="font-editorial text-2xl sm:text-3xl font-bold mt-1">All Shoes &amp; Sneakers</h2>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div id="category-pills" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1"></div>
+          <select id="size-filter" aria-label="Filter by UK size" class="bg-white border border-stone-300 rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-medium focus:outline-none focus:border-coral">
+            <option value="All">All UK Sizes</option>
+            <option value="UK 6">UK 6</option>
+            <option value="UK 7">UK 7</option>
+            <option value="UK 8">UK 8</option>
+            <option value="UK 9">UK 9</option>
+            <option value="UK 10">UK 10</option>
+            <option value="UK 11">UK 11</option>
+          </select>
+          <select id="sort-select" aria-label="Sort shoes" class="bg-white border border-stone-300 rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-medium focus:outline-none focus:border-coral">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active Filter Banner -->
+      <div id="active-filter-bar" class="hidden mb-5 flex items-center justify-between bg-coral-light border border-coral/30 rounded-xl px-4 py-2.5 text-sm">
+        <span id="active-filter-text" class="font-medium text-charcoal"></span>
+        <button id="clear-filters-btn" type="button" class="text-coral font-semibold hover:underline text-xs sm:text-sm">Reset Filters</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <!-- Empty State -->
+      <div id="empty-catalog" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200">
+        <p class="font-editorial text-xl font-semibold text-charcoal">No matching shoes found</p>
+        <p class="text-sm text-stone-500 mt-1">Try resetting your UK size or style filters.</p>
+        <button id="empty-reset-btn" type="button" class="mt-4 bg-coral text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-coral-dark transition">Show All Shoes</button>
+      </div>
+    </section>
+
+    <!-- Visit Store & Verified Mathura Info -->
+    <section id="visit-store" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="bg-charcoal text-cream rounded-3xl overflow-hidden shadow-lg grid lg:grid-cols-12">
+        <div class="lg:col-span-7 p-6 sm:p-10 lg:p-12 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs font-medium text-coral-light">
+            <span>The Coral Store • Mathura, UP</span>
+          </div>
+          <h2 class="font-editorial text-2xl sm:text-4xl font-bold leading-tight">
+            Try Your Size in Person at Our Mathura Showroom
+          </h2>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed max-w-xl">
+            Want to test sole cushioning and sizing before buying? Visit our showroom near Nawada Chauraha on NH-2 for men's EVA runners, sports trainers, and casual sneakers—or order online for fast store pickup.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-4 pt-2 text-sm">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <p class="text-stone-400 text-xs uppercase tracking-wider mb-1">Address</p>
+              <p class="font-medium text-cream">Tantura Road Nawada, Chauraha, NH-2, Narsipuram Colony / Aurangabad, Mathura, Uttar Pradesh</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <p class="text-stone-400 text-xs uppercase tracking-wider mb-1">Store Hours</p>
+              <p class="font-medium text-cream">Mon – Fri: 11:00 AM – 9:30 PM</p>
+              <p class="text-stone-300 text-xs mt-0.5">Sat – Sun: 11:00 AM – 10:00 PM</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <p class="text-stone-400 text-xs uppercase tracking-wider mb-1">Call / WhatsApp</p>
+              <a href="tel:+918979798170" class="font-semibold text-coral hover:underline">+91 89797 98170</a>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <p class="text-stone-400 text-xs uppercase tracking-wider mb-1">Instagram &amp; Rating</p>
+              <a href="https://www.instagram.com/the_coral_store/" target="_blank" rel="noopener noreferrer" class="font-semibold text-coral hover:underline block">@the_coral_store</a>
+              <p class="text-xs text-stone-300 mt-0.5">4.9 / 5 ★ (87 Customer Reviews)</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-stone-900 p-6 sm:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10">
+          <div class="space-y-4">
+            <h3 class="font-editorial text-xl font-bold">Sneaker Drop Alerts</h3>
+            <p class="text-sm text-stone-400">Get notified on fresh EVA running colorways, restocked UK sizes, and Mathura weekend deals.</p>
+            <form id="newsletter-form" class="space-y-3">
+              <input id="newsletter-input" type="email" required placeholder="Enter your email" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder:text-stone-400 focus:outline-none focus:border-coral" />
+              <button type="submit" class="w-full bg-coral hover:bg-coral-dark text-white font-semibold py-3 rounded-xl text-sm transition">Join Sneaker Club (Get 10% Off)</button>
+            </form>
+          </div>
+          <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-stone-400">
+            <span>Promo: <strong class="text-white">CORAL10</strong> (10% off)</span>
+            <span><strong class="text-white">MATHURA15</strong> (₹1,999+)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-stone-200 bg-white/60 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-stone-500">
+      <p>© 2026 <strong class="text-charcoal">The Coral Store</strong>, Mathura. Footwear &amp; Sneakers.</p>
+      <div class="flex items-center gap-5">
+        <a href="#catalog" class="hover:text-coral transition">All Shoes</a>
+        <a href="#visit-store" class="hover:text-coral transition">Store Info</a>
+        <a href="https://www.instagram.com/the_coral_store/" target="_blank" rel="noopener noreferrer" class="hover:text-coral transition">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div id="quick-view-modal" class="hidden fixed inset-0 z-50 bg-charcoal/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-cream rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-stone-200 grid md:grid-cols-2 max-h-[90vh] overflow-y-auto">
+      <div class="bg-sand aspect-[4/3] md:aspect-auto relative">
+        <img id="qv-img" src="" alt="" class="w-full h-full object-cover" />
+        <button id="qv-close-mobile" type="button" aria-label="Close quick view" class="md:hidden absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 text-charcoal flex items-center justify-center shadow">✕</button>
+      </div>
+      <div class="p-6 sm:p-7 flex flex-col justify-between space-y-5">
+        <div>
+          <div class="flex items-start justify-between gap-2">
+            <span id="qv-category" class="text-xs uppercase tracking-wider font-semibold text-coral"></span>
+            <button id="qv-close" type="button" aria-label="Close quick view" class="hidden md:flex w-8 h-8 rounded-full hover:bg-sand items-center justify-center text-stone-500">✕</button>
+          </div>
+          <h3 id="qv-title" class="font-editorial text-2xl font-bold mt-1"></h3>
+          <div class="flex items-center gap-3 mt-2">
+            <span id="qv-price" class="text-xl font-bold text-charcoal"></span>
+            <span id="qv-mrp" class="text-sm text-stone-400 line-through"></span>
+            <span id="qv-discount" class="text-xs font-semibold bg-coral-light text-coral px-2 py-0.5 rounded-full"></span>
+          </div>
+          <p id="qv-desc" class="text-sm text-stone-600 mt-3 leading-relaxed"></p>
+          <div id="qv-specs" class="mt-3 text-xs text-stone-600 bg-white border border-stone-200 rounded-xl p-3 space-y-1"></div>
+
+          <div class="mt-4">
+            <label class="text-xs font-semibold uppercase tracking-wider text-stone-500 block mb-2">Select UK Size</label>
+            <div id="qv-sizes" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <div class="mt-4">
+            <label class="text-xs font-semibold uppercase tracking-wider text-stone-500 block mb-2">Colorway: <span id="qv-color-label" class="text-charcoal font-semibold"></span></label>
+            <div id="qv-colors" class="flex items-center gap-2"></div>
+          </div>
+        </div>
+
+        <button id="qv-add-btn" type="button" class="w-full bg-coral hover:bg-coral-dark text-white font-semibold py-3.5 rounded-full text-sm transition shadow-sm">
+          Add Pair to Bag
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div id="cart-drawer" class="hidden fixed inset-0 z-50 bg-charcoal/50 backdrop-blur-xs flex justify-end">
+    <div class="bg-cream w-full max-w-md h-full flex flex-col shadow-2xl border-l border-stone-200">
+      <div class="px-6 py-4 border-b border-stone-200 flex items-center justify-between bg-white">
+        <div>
+          <h3 class="font-editorial text-xl font-bold">Your Shoe Bag</h3>
+          <p id="cart-shipping-msg" class="text-xs text-stone-500 mt-0.5"></p>
+        </div>
+        <button id="close-cart-btn" type="button" aria-label="Close bag" class="w-9 h-9 rounded-full hover:bg-sand flex items-center justify-center text-stone-600">✕</button>
+      </div>
+
+      <div class="px-6 py-2 bg-sand/60 border-b border-stone-200">
+        <div class="w-full h-1.5 bg-stone-200 rounded-full overflow-hidden">
+          <div id="shipping-progress-bar" class="h-full bg-coral transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+
+      <div id="cart-footer" class="border-t border-stone-200 bg-white p-6 space-y-4">
+        <form id="promo-form" class="flex gap-2">
+          <input id="promo-input" type="text" placeholder="Promo code (CORAL10)" class="flex-1 bg-cream border border-stone-300 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:border-coral uppercase" />
+          <button type="submit" class="bg-charcoal text-white px-4 py-2 rounded-xl text-xs font-semibold hover:bg-stone-800 transition">Apply</button>
+        </form>
+        <div class="space-y-1.5 text-sm">
+          <div class="flex justify-between text-stone-600">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">₹0</span>
+          </div>
+          <div id="cart-discount-row" class="hidden flex justify-between text-emerald-700 font-medium">
+            <span id="cart-discount-label">Promo Discount</span>
+            <span id="cart-discount-val">-₹0</span>
+          </div>
+          <div class="flex justify-between text-stone-600">
+            <span>Shipping</span>
+            <span id="cart-shipping-val">Free</span>
+          </div>
+          <div class="flex justify-between text-base font-bold text-charcoal pt-2 border-t border-stone-200">
+            <span>Total</span>
+            <span id="cart-total">₹0</span>
+          </div>
+        </div>
+        <button id="proceed-checkout-btn" type="button" class="w-full bg-coral hover:bg-coral-dark text-white font-semibold py-3.5 rounded-full text-sm transition shadow-sm">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="hidden fixed inset-0 z-50 bg-charcoal/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-cream rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-stone-200 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-5">
+        <h3 class="font-editorial text-2xl font-bold">Checkout</h3>
+        <button id="close-checkout-btn" type="button" aria-label="Close checkout" class="w-8 h-8 rounded-full hover:bg-sand flex items-center justify-center">✕</button>
+      </div>
+
+      <form id="checkout-form" class="space-y-4">
+        <div class="grid grid-cols-2 gap-2 p-1 bg-sand rounded-xl">
+          <button type="button" data-fulfill="delivery" class="fulfill-btn py-2 rounded-lg text-xs sm:text-sm font-semibold bg-white shadow-xs text-charcoal">Home Delivery</button>
+          <button type="button" data-fulfill="pickup" class="fulfill-btn py-2 rounded-lg text-xs sm:text-sm font-medium text-stone-600">Store Pickup (Mathura)</button>
+        </div>
+
+        <div id="pickup-note" class="hidden bg-coral-light border border-coral/30 rounded-xl p-3 text-xs text-charcoal">
+          Ready in 2 hours at <strong>The Coral Store</strong>, Tantura Road Nawada, Chauraha, NH-2, Mathura.
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-medium text-stone-600 block mb-1">Full Name *</label>
+            <input id="chk-name" type="text" required placeholder="e.g. Rohan Sharma" class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-coral" />
+          </div>
+          <div>
+            <label class="text-xs font-medium text-stone-600 block mb-1">Phone / WhatsApp *</label>
+            <input id="chk-phone" type="tel" required placeholder="+91 98XXXXXXXX" class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-coral" />
+          </div>
+        </div>
+
+        <div id="address-group">
+          <label class="text-xs font-medium text-stone-600 block mb-1">Delivery Address *</label>
+          <textarea id="chk-address" rows="2" required placeholder="House/Flat no., Street, City, PIN Code" class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-coral"></textarea>
+        </div>
+
+        <div>
+          <label class="text-xs font-medium text-stone-600 block mb-1">Payment Method</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="cursor-pointer">
+              <input type="radio" name="payment" value="UPI" checked class="peer sr-only" />
+              <div class="peer-checked:border-coral peer-checked:bg-coral-light border border-stone-300 bg-white rounded-xl py-2.5 text-center text-xs font-semibold">UPI / GPay</div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="payment" value="Card" class="peer sr-only" />
+              <div class="peer-checked:border-coral peer-checked:bg-coral-light border border-stone-300 bg-white rounded-xl py-2.5 text-center text-xs font-semibold">Card</div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="payment" value="COD" class="peer sr-only" />
+              <div class="peer-checked:border-coral peer-checked:bg-coral-light border border-stone-300 bg-white rounded-xl py-2.5 text-center text-xs font-semibold">Pay on Delivery</div>
+            </label>
+          </div>
+        </div>
+
+        <div class="bg-white border border-stone-200 rounded-xl p-3.5 flex items-center justify-between text-sm">
+          <span class="text-stone-600">Payable Amount</span>
+          <span id="chk-total" class="font-bold text-lg text-charcoal">₹0</span>
+        </div>
+
+        <button type="submit" class="w-full bg-coral hover:bg-coral-dark text-white font-semibold py-3.5 rounded-full text-sm transition shadow-sm">
+          Confirm Shoe Order
+        </button>
+      </form>
+
+      <div id="order-success" class="hidden text-center py-6 space-y-4">
+        <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto text-2xl">✓</div>
+        <h4 class="font-editorial text-2xl font-bold">Order Confirmed!</h4>
+        <p id="order-summary-msg" class="text-sm text-stone-600 leading-relaxed"></p>
+        <div class="bg-white border border-stone-200 rounded-2xl p-4 text-xs text-stone-600">
+          Questions about sizing or dispatch? Call or WhatsApp <strong class="text-charcoal">+91 89797 98170</strong>.
+        </div>
+        <button id="done-order-btn" type="button" class="w-full bg-charcoal text-white py-3 rounded-full text-sm font-semibold hover:bg-stone-800 transition">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-charcoal text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium shadow-xl"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
