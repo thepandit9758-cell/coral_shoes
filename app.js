@@ -1,107 +1,131 @@
+
 const PRODUCTS = [
-      {
-        id: 'shoe-01',
-        title: 'CoralPulse EVA Pro Runner',
-        category: 'EVA Lightweight',
-        price: 1599,
-        mrp: 2499,
-        rating: 4.9,
-        reviews: 46,
-        badge: 'Bestseller',
-        sole: 'High-Rebound EVA Foam',
-        upper: 'Breathable Engineered Mesh',
-        weight: '235g (per shoe)',
-        image: 'images/eva-runner-black-coral.jpg',
-        sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
-        colors: [{ name: 'Jet Black & Coral', hex: '#1C1917' }, { name: 'Coral Blaze', hex: '#E05A47' }],
-        desc: 'Featherlight EVA midsole engineered to absorb impact during morning runs, gym sessions, and long daily walks.'
-      },
-      {
-        id: 'shoe-02',
-        title: 'AirMesh Cushion Sports Trainer',
-        category: 'Sports & Running',
-        price: 1699,
-        mrp: 2599,
-        rating: 4.9,
-        reviews: 54,
-        badge: 'Top Rated',
-        sole: 'Dual-Density EVA + Grip Rubber',
-        upper: '3D AirMesh Ventilation',
-        weight: '250g (per shoe)',
-        image: 'images/airmesh-sports-trainer.jpg',
-        sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
-        colors: [{ name: 'Slate & Coral', hex: '#64748B' }, { name: 'Graphite', hex: '#374151' }],
-        desc: 'Responsive sports trainer with reinforced heel lock and airy 3D mesh upper for maximum breathability.'
-      },
-      {
-        id: 'shoe-03',
-        title: 'CourtLow Suede Accent Sneakers',
-        category: 'Casual Sneakers',
-        price: 1549,
-        mrp: 2299,
-        rating: 4.8,
-        reviews: 39,
-        badge: 'New Drop',
-        sole: 'Natural Gum Rubber Cupsole',
-        upper: 'Micro-Leather & Suede Heel Tab',
-        weight: '310g (per shoe)',
-        image: 'images/court-suede-sneakers.jpg',
-        sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
-        colors: [{ name: 'Cream & Coral', hex: '#E05A47' }, { name: 'Classic White', hex: '#F5F5F4' }],
-        desc: 'Clean low-top court silhouette with coral suede heel accents and memory-foam insole for effortless everyday wear.'
-      },
-      {
-        id: 'shoe-04',
-        title: 'Apex High-Top Street Sneakers',
-        category: 'High-Tops',
-        price: 1999,
-        mrp: 2999,
-        rating: 4.9,
-        reviews: 31,
-        badge: 'Street Edition',
-        sole: 'Sculpted Traction Outsole',
-        upper: 'Padded Collar + Nubuck Overlays',
-        weight: '360g (per shoe)',
-        image: 'images/hightop-street-sneakers.jpg',
-        sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
-        colors: [{ name: 'White, Slate & Coral', hex: '#475569' }, { name: 'Triple Charcoal', hex: '#292524' }],
-        desc: 'Mid-high ankle support with bold coral side-cage detailing and cushioned tongue for street and court styling.'
-      },
-      {
-        id: 'shoe-05',
-        title: 'AeroKnit Gym & Walk Sneakers',
-        category: 'EVA Lightweight',
-        price: 1399,
-        mrp: 1999,
-        rating: 4.8,
-        reviews: 42,
-        badge: 'Value Pick',
-        sole: 'CloudFlex EVA Midsole',
-        upper: 'Seamless Stretch Flyknit',
-        weight: '220g (per shoe)',
-        image: 'images/aeroknit-gym-trainer.jpg',
-        sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
-        colors: [{ name: 'Navy Slate', hex: '#334155' }, { name: 'Ash Grey', hex: '#78716C' }],
-        desc: 'Sock-like stretch knit upper with zero-break-in comfort—perfect for travel, college, and daily cardio.'
-      },
-      {
-        id: 'shoe-06',
-        title: 'Sandstone Suede Loafers & Court',
-        category: 'Loafers & Smart',
-        price: 1849,
-        mrp: 2699,
-        rating: 4.9,
-        reviews: 28,
-        badge: 'Smart Casual',
-        sole: 'Flexible Crepe-Feel Outsole',
-        upper: 'Soft Brushed Vegan Suede',
-        weight: '295g (per shoe)',
-        image: 'images/sandstone-suede-loafers.jpg',
-        sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
-        colors: [{ name: 'Warm Camel', hex: '#B08968' }, { name: 'Sandstone', hex: '#D6C7B2' }],
-        desc: 'Refined slip-on silhouette crafted for smart-casual office days, festive gatherings, and weekend dinners.'
-      }
-    ];
+  {
+    id: 'shoe-01',
+    title: 'CoralPulse EVA Pro Runner',
+    category: 'EVA Lightweight',
+    price: 1599,
+    mrp: 2499,
+    rating: 4.9,
+    reviews: 46,
+    badge: 'Bestseller',
+    sole: 'High-Rebound EVA Foam',
+    upper: 'Breathable Engineered Mesh',
+    weight: '235g (per shoe)',
+    image: './aerial-gym-training.jpg',
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+    colors: [
+      { name: 'Jet Black & Coral', hex: '#1C1917' },
+      { name: 'Coral Blaze', hex: '#E05A47' }
+    ],
+    desc: 'Featherlight EVA midsole engineered to absorb impact during morning runs, gym sessions, and long daily walks.'
+  },
+
+  {
+    id: 'shoe-02',
+    title: 'AirMesh Cushion Sports Trainer',
+    category: 'Sports & Running',
+    price: 1699,
+    mrp: 2599,
+    rating: 4.9,
+    reviews: 54,
+    badge: 'Top Rated',
+    sole: 'Dual-Density EVA + Grip Rubber',
+    upper: '3D AirMesh Ventilation',
+    weight: '250g (per shoe)',
+    image: './airmesh-sports-trainer.jpg',
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
+    colors: [
+      { name: 'Slate & Coral', hex: '#64748B' },
+      { name: 'Graphite', hex: '#374151' }
+    ],
+    desc: 'Responsive sports trainer with reinforced heel lock and airy 3D mesh upper for maximum breathability.'
+  },
+
+  {
+    id: 'shoe-03',
+    title: 'CourtLow Suede Accent Sneakers',
+    category: 'Casual Sneakers',
+    price: 1549,
+    mrp: 2299,
+    rating: 4.8,
+    reviews: 39,
+    badge: 'New Drop',
+    sole: 'Natural Gum Rubber Cupsole',
+    upper: 'Micro-Leather & Suede Heel Tab',
+    weight: '310g (per shoe)',
+    image: './court-suede-sneakers.jpg',
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
+    colors: [
+      { name: 'Cream & Coral', hex: '#E05A47' },
+      { name: 'Classic White', hex: '#F5F5F4' }
+    ],
+    desc: 'Clean low-top court silhouette with coral suede heel accents and memory-foam insole for effortless everyday wear.'
+  },
+
+  {
+    id: 'shoe-04',
+    title: 'Apex High-Top Street Sneakers',
+    category: 'High-Tops',
+    price: 1999,
+    mrp: 2999,
+    rating: 4.9,
+    reviews: 31,
+    badge: 'Street Edition',
+    sole: 'Sculpted Traction Outsole',
+    upper: 'Padded Collar + Nubuck Overlays',
+    weight: '360g (per shoe)',
+    image: './nighttop-street-sneakers.jpg',
+    sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+    colors: [
+      { name: 'White, Slate & Coral', hex: '#475569' },
+      { name: 'Triple Charcoal', hex: '#292524' }
+    ],
+    desc: 'Mid-high ankle support with bold coral side-cage detailing and cushioned tongue for street and court styling.'
+  },
+
+  {
+    id: 'shoe-05',
+    title: 'AeroKnit Gym & Walk Sneakers',
+    category: 'EVA Lightweight',
+    price: 1399,
+    mrp: 1999,
+    rating: 4.8,
+    reviews: 42,
+    badge: 'Value Pick',
+    sole: 'CloudFlex EVA Midsole',
+    upper: 'Seamless Stretch Flyknit',
+    weight: '220g (per shoe)',
+    image: './alimeh-sports-training.jpg',
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+    colors: [
+      { name: 'Navy Slate', hex: '#334155' },
+      { name: 'Ash Grey', hex: '#78716C' }
+    ],
+    desc: 'Sock-like stretch knit upper with zero-break-in comfort—perfect for travel, college, and daily cardio.'
+  },
+
+  {
+    id: 'shoe-06',
+    title: 'Sandstone Suede Loafers & Court',
+    category: 'Loafers & Smart',
+    price: 1849,
+    mrp: 2699,
+    rating: 4.9,
+    reviews: 28,
+    badge: 'Smart Casual',
+    sole: 'Flexible Crepe-Feel Outsole',
+    upper: 'Soft Brushed Vegan Suede',
+    weight: '295g (per shoe)',
+    image: './sandstone-suede-loafers.jpg',
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
+    colors: [
+      { name: 'Warm Camel', hex: '#B08968' },
+      { name: 'Sandstone', hex: '#D6C7B2' }
+    ],
+    desc: 'Refined slip-on silhouette crafted for smart-casual office days, festive gatherings, and weekend dinners.'
+  }
+];
 
     const CATEGORIES = ['All', 'Sports & Running', 'EVA Lightweight', 'Casual Sneakers', 'High-Tops', 'Loafers & Smart'];
     const FREE_SHIPPING_THRESHOLD = 1499;
